@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @blmothapo1
-- 👀 I’m interested in ...
+- 👀 I’m interested in ... coding
 - 🌱 I’m currently learning ... swift
 - 💞️ I’m looking to collaborate on ... games && apps
 - 📫 How to reach me ...
