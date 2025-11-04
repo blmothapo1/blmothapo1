@@ -15,6 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232563eb'/%3E%3Cpath d='M50 25 L60 45 L80 50 L60 55 L50 75 L40 55 L20 50 L40 45 Z' fill='white'/%3E%3C/svg%3E">
     
     <style>
+        /* Base animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -22,13 +23,143 @@
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
+        
+        /* Logo pulse animation */
+        .logo-pulse {
+            display: inline-block;
+            animation: logoPulse 1.5s ease-in-out;
+            will-change: transform;
+        }
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.08); }
+            30% { transform: scale(0.98); }
+            45% { transform: scale(1.03); }
+            60% { transform: scale(1); }
+        }
+        
+        /* Hero gradient with parallax */
         .hero-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
         }
+        
+        /* Ambient grid shimmer */
+        .grid-ambient {
+            position: relative;
+        }
+        .grid-ambient::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridShimmer 8s linear infinite;
+            pointer-events: none;
+            will-change: opacity;
+        }
+        @keyframes gridShimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* Parallax container */
+        .parallax {
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .parallax .layer {
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+        
+        /* Enhanced buttons */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* SVG trace animation */
+        .svg-trace path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: svgTrace 1.2s ease-out forwards;
+        }
+        @keyframes svgTrace {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        /* Scroll-in animation */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glass effect */
         .glass-effect {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Card hover lift */
+        .card-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .card-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Disable animations for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .parallax .layer {
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -39,7 +170,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-600">Sterling Energy</span>
+                    <span class="text-2xl font-bold text-blue-600 logo-pulse">Sterling Energy</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
@@ -66,20 +197,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white pt-24 pb-20 px-4">
-        <div class="max-w-7xl mx-auto">
+    <section class="hero-gradient grid-ambient text-white pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto parallax" id="hero-parallax">
             <div class="text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 layer" data-depth="0.2">
                     Powering Tomorrow's<br/>Energy Solutions
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto layer" data-depth="0.1">
                     Sterling Energy Infrastructure delivers cutting-edge sustainable energy solutions for a cleaner, more efficient future.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center layer" data-depth="0.15">
+                    <a href="#contact" class="btn bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
                         Get Started
                     </a>
-                    <a href="#projects" class="glass-effect text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-20 transition">
+                    <a href="#projects" class="btn glass-effect text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-20 transition">
                         View Projects
                     </a>
                 </div>
@@ -97,8 +228,8 @@
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
-                    <div class="text-blue-600 mb-4">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
@@ -108,8 +239,8 @@
                         Pioneering renewable energy solutions that reduce carbon footprint and promote environmental stewardship.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
-                    <div class="text-blue-600 mb-4">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
@@ -119,8 +250,8 @@
                         Decades of expertise delivering robust infrastructure projects on time and within budget.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
-                    <div class="text-blue-600 mb-4">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
@@ -142,19 +273,19 @@
                 <p class="text-xl text-gray-600">Comprehensive energy infrastructure solutions tailored to your needs</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
                     <h4 class="text-xl font-bold mb-2">Solar Power</h4>
                     <p class="text-blue-100">Large-scale solar installations and distributed generation systems.</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg">
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
                     <h4 class="text-xl font-bold mb-2">Wind Energy</h4>
                     <p class="text-green-100">Onshore and offshore wind farm development and management.</p>
                 </div>
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl shadow-lg">
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
                     <h4 class="text-xl font-bold mb-2">Grid Infrastructure</h4>
                     <p class="text-purple-100">Smart grid solutions and transmission network optimization.</p>
                 </div>
-                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl shadow-lg">
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
                     <h4 class="text-xl font-bold mb-2">Energy Storage</h4>
                     <p class="text-orange-100">Advanced battery systems and energy storage technologies.</p>
                 </div>
@@ -170,7 +301,7 @@
                 <p class="text-xl text-gray-600">Transforming energy landscapes across the globe</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
                     <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600"></div>
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-2">Desert Sun Initiative</h3>
@@ -178,7 +309,7 @@
                         <span class="text-blue-600 font-semibold">Completed 2024</span>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
                     <div class="h-48 bg-gradient-to-r from-green-400 to-green-600"></div>
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-2">Coastal Wind Array</h3>
@@ -288,6 +419,9 @@
     </footer>
 
     <script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
@@ -319,6 +453,74 @@
                 }
             });
         });
+
+        // Mouse parallax effect on hero section
+        if (!prefersReducedMotion) {
+            const heroParallax = document.getElementById('hero-parallax');
+            if (heroParallax) {
+                heroParallax.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { offsetWidth, offsetHeight } = heroParallax;
+                    const xPos = (clientX / offsetWidth - 0.5) * 2;
+                    const yPos = (clientY / offsetHeight - 0.5) * 2;
+
+                    heroParallax.querySelectorAll('.layer').forEach(layer => {
+                        const depth = parseFloat(layer.getAttribute('data-depth') || 0);
+                        const moveX = xPos * depth * 20;
+                        const moveY = yPos * depth * 20;
+                        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    });
+                });
+
+                heroParallax.addEventListener('mouseleave', () => {
+                    heroParallax.querySelectorAll('.layer').forEach(layer => {
+                        layer.style.transform = 'translate(0, 0)';
+                    });
+                });
+            }
+        }
+
+        // IntersectionObserver for scroll-triggered animations
+        if (!prefersReducedMotion) {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // SVG trace animation
+                        if (entry.target.hasAttribute('data-svg-animate')) {
+                            const svg = entry.target.querySelector('svg');
+                            if (svg) {
+                                svg.classList.add('svg-trace');
+                            }
+                        }
+                        
+                        // Only observe once
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all scroll-fade-in elements
+            document.querySelectorAll('.scroll-fade-in').forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+            // Observe SVG icons
+            document.querySelectorAll('[data-svg-animate]').forEach(el => {
+                scrollObserver.observe(el);
+            });
+        } else {
+            // If reduced motion is preferred, show all elements immediately
+            document.querySelectorAll('.scroll-fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
     </script>
 
 </body>
