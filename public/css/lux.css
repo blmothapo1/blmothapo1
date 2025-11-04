@@ -1,0 +1,124 @@
+/*
+ * Lux Layer – SEI additive lighting utilities
+ * Opt-in refined lighting and illumination effects
+ * Non-destructive: adds only, never overrides existing styles
+ */
+
+:root {
+  --lux-glow: 240, 248, 255;          /* soft cool white */
+  --lux-accent: 94, 161, 255;         /* electric blue accent */
+  --lux-ambience: 12;                 /* 0–20 intensity */
+  --lux-radius: 900px;                /* spotlight size */
+  --lux-x: 50%; 
+  --lux-y: 50%;                       /* cursor spotlight position */
+  --lux-ease: cubic-bezier(.25,.1,.25,1);
+}
+
+/* global switch */
+[data-lux="on"] { 
+  --lux-ambience: 14; 
+}
+
+/* Ambient overlay for hero/sections (opt-in) */
+.lux-ambient {
+  position: relative; 
+  isolation: isolate;
+}
+.lux-ambient::before {
+  content: "";
+  position: absolute; 
+  inset: -2px;
+  background:
+    radial-gradient(circle at 30% 10%,
+      rgba(var(--lux-glow), .14) 0%, transparent 55%),
+    radial-gradient(circle at 80% 20%,
+      rgba(var(--lux-accent), .10) 0%, transparent 50%);
+  filter: blur(10px);
+  pointer-events: none; 
+  z-index: -1;
+}
+
+/* Soft edge glow for logos/CTAs/cards (opt-in) */
+.lux-glow {
+  position: relative;
+  box-shadow:
+    0 0 0.5px rgba(255,255,255,.35) inset,
+    0 8px 24px rgba(var(--lux-accent), .12),
+    0 2px 6px rgba(0,0,0,.25);
+  transition: box-shadow .28s var(--lux-ease), transform .28s var(--lux-ease);
+}
+.lux-glow:hover { 
+  transform: translateY(-1px); 
+}
+
+/* Glass card utility */
+.lux-glass {
+  background: rgba(255,255,255,.06);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+/* Cursor spotlight layer (opt-in) */
+.lux-spotlight {
+  position: relative; 
+  isolation: isolate;
+}
+.lux-spotlight::after {
+  content: "";
+  position: absolute; 
+  inset: -10%;
+  background:
+    radial-gradient(circle var(--lux-radius) at var(--lux-x) var(--lux-y),
+      rgba(255,255,255,.10), rgba(255,255,255,0) 60%),
+    radial-gradient(circle calc(var(--lux-radius) * .55) at calc(var(--lux-x) + 8%) calc(var(--lux-y) + 6%),
+      rgba(var(--lux-accent), .08), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: calc(var(--lux-ambience)/20);
+  pointer-events: none; 
+  z-index: 1;
+  transition: opacity .25s var(--lux-ease);
+}
+
+/* Light sweep on reveal (use with IntersectionObserver) */
+.lux-sweep {
+  position: relative; 
+  overflow: hidden;
+}
+.lux-sweep::before {
+  content: "";
+  position: absolute; 
+  inset: 0;
+  background: linear-gradient(100deg,
+    transparent 0%,
+    rgba(255,255,255,.08) 35%,
+    transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .8s var(--lux-ease);
+}
+.lux-sweep.is-in::before { 
+  transform: translateX(120%); 
+}
+
+/* Reduced motion/transparency support */
+@media (prefers-reduced-motion: reduce) {
+  .lux-sweep::before { 
+    transition: none; 
+    transform: none; 
+    opacity: 0; 
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .lux-glass { 
+    background: #111; 
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none; 
+  }
+  .lux-ambient::before, 
+  .lux-spotlight::after { 
+    opacity: .04; 
+  }
+}
