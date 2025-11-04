@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lux Layer Demo - Sterling Energy Infrastructure</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lux Layer CSS (additive lighting utilities) -->
+    <link rel="stylesheet" href="public/css/lux.css">
+    
+    <style>
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    
+    <!-- Demo Header -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-4 text-center">Lux Layer Demo</h1>
+        <p class="text-center text-gray-400 mb-8">Opt-in lighting utilities for Sterling Energy Infrastructure</p>
+    </div>
+
+    <!-- Hero Section with Lux Ambient + Spotlight -->
+    <section class="lux-ambient lux-spotlight py-20 px-4 mb-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-6">Ambient & Spotlight Demo</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                This section has <code class="text-blue-400">.lux-ambient</code> and <code class="text-blue-400">.lux-spotlight</code> classes.
+                Move your mouse to see the spotlight effect.
+            </p>
+        </div>
+    </section>
+
+    <!-- Lux Glow Examples -->
+    <section class="py-12 px-4 mb-12">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">Glow Effects</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="lux-glow bg-blue-900 p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Card with Glow</h4>
+                    <p class="text-gray-300">Hover to see the lift effect</p>
+                </div>
+                <div class="lux-glow bg-green-900 p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Another Glow Card</h4>
+                    <p class="text-gray-300">Soft edge lighting</p>
+                </div>
+                <div class="lux-glow bg-purple-900 p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Third Glow Card</h4>
+                    <p class="text-gray-300">Apple-style refinement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lux Glass Example -->
+    <section class="py-12 px-4 mb-12">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">Glass Effect</h3>
+            <div class="lux-glass p-8">
+                <h4 class="text-2xl font-bold mb-4">Frosted Glass Card</h4>
+                <p class="text-gray-300 mb-4">
+                    This uses <code class="text-blue-400">.lux-glass</code> for a frosted glass appearance
+                    with backdrop blur and subtle borders.
+                </p>
+                <button class="lux-glow bg-blue-600 text-white px-6 py-3 rounded-lg">
+                    Button with Glow
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lux Sweep Examples -->
+    <section class="py-12 px-4 mb-12">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">Light Sweep Animation</h3>
+            <p class="text-center text-gray-400 mb-8">Scroll down to see the light sweep effect</p>
+            
+            <div class="space-y-6">
+                <div class="lux-sweep bg-gray-800 p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Sweep Card 1</h4>
+                    <p class="text-gray-300">Light sweeps across when scrolled into view</p>
+                </div>
+                <div class="lux-sweep bg-gray-800 p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Sweep Card 2</h4>
+                    <p class="text-gray-300">Each card animates independently</p>
+                </div>
+                <div class="lux-sweep bg-gray-800 p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Sweep Card 3</h4>
+                    <p class="text-gray-300">Subtle and sophisticated</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Guide -->
+    <section class="py-12 px-4 mb-12 bg-gray-900">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">How to Use Lux Layer</h3>
+            <div class="space-y-4 text-gray-300">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">.lux-ambient</h4>
+                    <p>Adds soft ambient glow overlays. Apply to hero sections or large containers.</p>
+                    <code class="text-sm text-gray-400 block mt-2">&lt;section class="lux-ambient"&gt;...&lt;/section&gt;</code>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">.lux-spotlight</h4>
+                    <p>Creates a cursor-tracking spotlight effect. Combine with .lux-ambient for best results.</p>
+                    <code class="text-sm text-gray-400 block mt-2">&lt;section class="lux-ambient lux-spotlight"&gt;...&lt;/section&gt;</code>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">.lux-glow</h4>
+                    <p>Adds soft edge glow and hover lift effect. Perfect for cards, buttons, and CTAs.</p>
+                    <code class="text-sm text-gray-400 block mt-2">&lt;div class="lux-glow"&gt;...&lt;/div&gt;</code>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">.lux-glass</h4>
+                    <p>Frosted glass effect with backdrop blur. Use for overlays or premium cards.</p>
+                    <code class="text-sm text-gray-400 block mt-2">&lt;div class="lux-glass"&gt;...&lt;/div&gt;</code>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">.lux-sweep</h4>
+                    <p>Light sweep animation triggered on scroll. Automatically activated by lux.js.</p>
+                    <code class="text-sm text-gray-400 block mt-2">&lt;div class="lux-sweep"&gt;...&lt;/div&gt;</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lux Layer JS -->
+    <script src="public/js/lux.js"></script>
+</body>
+</html>

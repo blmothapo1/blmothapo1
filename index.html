@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sterling Energy Infrastructure - Leading the future of sustainable energy solutions and infrastructure development.">
+    <meta name="keywords" content="energy infrastructure, sustainable energy, renewable energy, energy solutions">
+    <meta name="author" content="Sterling Energy Infrastructure">
+    <title>Sterling Energy Infrastructure - Powering Tomorrow's Energy Solutions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232563eb'/%3E%3Cpath d='M50 25 L60 45 L80 50 L60 55 L50 75 L40 55 L20 50 L40 45 Z' fill='white'/%3E%3C/svg%3E">
+    
+    <style>
+        /* Base animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Logo pulse animation */
+        .logo-pulse {
+            display: inline-block;
+            animation: logoPulse 1.5s ease-in-out;
+            will-change: transform;
+        }
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.08); }
+            30% { transform: scale(0.98); }
+            45% { transform: scale(1.03); }
+            60% { transform: scale(1); }
+        }
+        
+        /* Hero gradient with parallax */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Ambient grid shimmer */
+        .grid-ambient {
+            position: relative;
+        }
+        .grid-ambient::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridShimmer 8s linear infinite;
+            pointer-events: none;
+            will-change: opacity;
+        }
+        @keyframes gridShimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* Parallax container */
+        .parallax {
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .parallax .layer {
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+        
+        /* Enhanced buttons */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* SVG trace animation */
+        .svg-trace path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: svgTrace 1.2s ease-out forwards;
+        }
+        @keyframes svgTrace {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        /* Scroll-in animation */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glass effect */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Card hover lift */
+        .card-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .card-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Disable animations for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .parallax .layer {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600 logo-pulse">Sterling Energy</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Services</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">About</a>
+                    <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Services</a>
+                    <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Projects</a>
+                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient grid-ambient text-white pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto parallax" id="hero-parallax">
+            <div class="text-center fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 layer" data-depth="0.2">
+                    Powering Tomorrow's<br/>Energy Solutions
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto layer" data-depth="0.1">
+                    Sterling Energy Infrastructure delivers cutting-edge sustainable energy solutions for a cleaner, more efficient future.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center layer" data-depth="0.15">
+                    <a href="#contact" class="btn bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+                        Get Started
+                    </a>
+                    <a href="#projects" class="btn glass-effect text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-20 transition">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About Sterling Energy</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Leading the transformation of global energy infrastructure through innovation, sustainability, and excellence.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Sustainable Energy</h3>
+                    <p class="text-gray-600">
+                        Pioneering renewable energy solutions that reduce carbon footprint and promote environmental stewardship.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Proven Reliability</h3>
+                    <p class="text-gray-600">
+                        Decades of expertise delivering robust infrastructure projects on time and within budget.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Industry Leadership</h3>
+                    <p class="text-gray-600">
+                        Setting industry standards with innovative approaches and cutting-edge technology solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600">Comprehensive energy infrastructure solutions tailored to your needs</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <h4 class="text-xl font-bold mb-2">Solar Power</h4>
+                    <p class="text-blue-100">Large-scale solar installations and distributed generation systems.</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <h4 class="text-xl font-bold mb-2">Wind Energy</h4>
+                    <p class="text-green-100">Onshore and offshore wind farm development and management.</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <h4 class="text-xl font-bold mb-2">Grid Infrastructure</h4>
+                    <p class="text-purple-100">Smart grid solutions and transmission network optimization.</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
+                    <h4 class="text-xl font-bold mb-2">Energy Storage</h4>
+                    <p class="text-orange-100">Advanced battery systems and energy storage technologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+                <p class="text-xl text-gray-600">Transforming energy landscapes across the globe</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Desert Sun Initiative</h3>
+                        <p class="text-gray-600 mb-4">500MW solar farm providing clean energy to 150,000 homes across the southwestern region.</p>
+                        <span class="text-blue-600 font-semibold">Completed 2024</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Coastal Wind Array</h3>
+                        <p class="text-gray-600 mb-4">300MW offshore wind installation delivering sustainable power to coastal communities.</p>
+                        <span class="text-green-600 font-semibold">Completed 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 hero-gradient text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold mb-2">2.5GW</div>
+                    <div class="text-blue-100">Total Capacity</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">50+</div>
+                    <div class="text-blue-100">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">15</div>
+                    <div class="text-blue-100">Countries Served</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">1M+</div>
+                    <div class="text-blue-100">Homes Powered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600">Ready to power your next project? Let's discuss how we can help.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your interest! This is a demo form. Please email info@sterlingenergyinfrastructure.com directly.');">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="contact-company" class="block text-gray-700 font-semibold mb-2">Company</label>
+                        <input type="text" id="contact-company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your company">
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Sterling Energy</h3>
+                    <p class="text-gray-400">Building tomorrow's energy infrastructure today.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>info@sterlingenergyinfrastructure.com</li>
+                        <li>+1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Sterling Energy Infrastructure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            menu.classList.toggle('hidden');
+            button.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mouse parallax effect on hero section
+        if (!prefersReducedMotion) {
+            const heroParallax = document.getElementById('hero-parallax');
+            if (heroParallax) {
+                heroParallax.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { offsetWidth, offsetHeight } = heroParallax;
+                    const xPos = (clientX / offsetWidth - 0.5) * 2;
+                    const yPos = (clientY / offsetHeight - 0.5) * 2;
+
+                    heroParallax.querySelectorAll('.layer').forEach(layer => {
+                        const depth = parseFloat(layer.getAttribute('data-depth') || 0);
+                        const moveX = xPos * depth * 20;
+                        const moveY = yPos * depth * 20;
+                        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    });
+                });
+
+                heroParallax.addEventListener('mouseleave', () => {
+                    heroParallax.querySelectorAll('.layer').forEach(layer => {
+                        layer.style.transform = 'translate(0, 0)';
+                    });
+                });
+            }
+        }
+
+        // IntersectionObserver for scroll-triggered animations
+        if (!prefersReducedMotion) {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // SVG trace animation
+                        if (entry.target.hasAttribute('data-svg-animate')) {
+                            const svg = entry.target.querySelector('svg');
+                            if (svg) {
+                                svg.classList.add('svg-trace');
+                            }
+                        }
+                        
+                        // Only observe once
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all scroll-fade-in elements
+            document.querySelectorAll('.scroll-fade-in').forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+            // Observe SVG icons
+            document.querySelectorAll('[data-svg-animate]').forEach(el => {
+                scrollObserver.observe(el);
+            });
+        } else {
+            // If reduced motion is preferred, show all elements immediately
+            document.querySelectorAll('.scroll-fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+    </script>
+
+</body>
+</html>
