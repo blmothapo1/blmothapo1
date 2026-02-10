@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sterling Energy Infrastructure - Leading the future of sustainable energy solutions and infrastructure development.">
-    <meta name="keywords" content="energy infrastructure, sustainable energy, renewable energy, energy solutions">
-    <meta name="author" content="Sterling Energy Infrastructure">
-    <title>Sterling Energy Infrastructure - Powering Tomorrow's Energy Solutions</title>
+    <meta name="description" content="Ouro Detailing - Premium mobile detailing services specializing in exotic European cars. Expert care for Porsche, Ferrari, BMW, Land Rover, and Mini Cooper.">
+    <meta name="keywords" content="mobile detailing, exotic car detailing, European car detailing, Porsche detailing, Ferrari detailing, BMW detailing, luxury car care, auto detailing">
+    <meta name="author" content="Ouro Detailing">
+    <title>Ouro Detailing - Premium Exotic Car Detailing Services</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232563eb'/%3E%3Cpath d='M50 25 L60 45 L80 50 L60 55 L50 75 L40 55 L20 50 L40 45 Z' fill='white'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23B8860B'/%3E%3Cpath d='M50 20 C40 20 35 30 35 40 C35 50 40 55 50 60 C60 55 65 50 65 40 C65 30 60 20 50 20 Z M50 65 L40 70 L30 75 L25 80 L75 80 L70 75 L60 70 Z' fill='white'/%3E%3C/svg%3E">
     
     <style>
         /* Base animations */
@@ -38,14 +38,24 @@
             60% { transform: scale(1); }
         }
         
-        /* Hero gradient with parallax */
+        /* Hero gradient with parallax - Gold theme for luxury */
         .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
             position: relative;
             overflow: hidden;
         }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.15), transparent 70%);
+            pointer-events: none;
+        }
         
-        /* Ambient grid shimmer */
+        /* Ambient grid shimmer - Gold accents */
         .grid-ambient {
             position: relative;
         }
@@ -54,8 +64,8 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(184, 134, 11, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(184, 134, 11, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: gridShimmer 8s linear infinite;
             pointer-events: none;
@@ -64,6 +74,23 @@
         @keyframes gridShimmer {
             0%, 100% { opacity: 0.3; }
             50% { opacity: 0.6; }
+        }
+        
+        /* Gold accent color */
+        .text-gold {
+            color: #D4AF37;
+        }
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+        .border-gold {
+            border-color: #D4AF37;
+        }
+        .hover\:bg-gold:hover {
+            background-color: #B8860B;
+        }
+        .hover\:text-gold:hover {
+            color: #D4AF37;
         }
         
         /* Parallax container */
@@ -166,19 +193,19 @@
 <body class="font-sans antialiased">
     
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
+    <nav class="fixed w-full bg-black bg-opacity-95 shadow-md z-50 border-b border-gold border-opacity-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-600 logo-pulse">Sterling Energy</span>
+                    <span class="text-2xl font-bold text-gold logo-pulse">Ouro Detailing</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Services</a>
-                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                    <a href="#services" class="text-gray-300 hover:text-gold transition">Services</a>
+                    <a href="#brands" class="text-gray-300 hover:text-gold transition">Brands</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-gold transition">Gallery</a>
+                    <a href="#contact" class="text-gray-300 hover:text-gold transition">Book Now</a>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-700" aria-label="Toggle mobile menu" aria-expanded="false">
+                <button id="mobile-menu-button" class="md:hidden text-gray-300" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -187,10 +214,10 @@
             <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">About</a>
-                    <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Services</a>
-                    <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Projects</a>
-                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition">Contact</a>
+                    <a href="#services" class="block px-3 py-2 text-gray-300 hover:text-gold hover:bg-gray-900 rounded-md transition">Services</a>
+                    <a href="#brands" class="block px-3 py-2 text-gray-300 hover:text-gold hover:bg-gray-900 rounded-md transition">Brands</a>
+                    <a href="#gallery" class="block px-3 py-2 text-gray-300 hover:text-gold hover:bg-gray-900 rounded-md transition">Gallery</a>
+                    <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-gold hover:bg-gray-900 rounded-md transition">Book Now</a>
                 </div>
             </div>
         </div>
@@ -201,17 +228,17 @@
         <div class="max-w-7xl mx-auto parallax" id="hero-parallax">
             <div class="text-center fade-in">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 layer" data-depth="0.2">
-                    Powering Tomorrow's<br/>Energy Solutions
+                    Premium Mobile Detailing<br/>for <span class="text-gold">Exotic European Cars</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto layer" data-depth="0.1">
-                    Sterling Energy Infrastructure delivers cutting-edge sustainable energy solutions for a cleaner, more efficient future.
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto layer" data-depth="0.1">
+                    Specializing in Porsche, Ferrari, BMW, Land Rover, Mini Cooper & All European Luxury Vehicles
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center layer" data-depth="0.15">
-                    <a href="#contact" class="btn bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
-                        Get Started
+                    <a href="#contact" class="btn bg-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                        Book Appointment
                     </a>
-                    <a href="#projects" class="btn glass-effect text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-20 transition">
-                        View Projects
+                    <a href="#services" class="btn glass-effect text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-20 transition border border-gold border-opacity-30">
+                        View Services
                     </a>
                 </div>
             </div>
@@ -222,43 +249,44 @@
     <section id="about" class="py-20 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">About Sterling Energy</h2>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose Ouro Detailing?</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Leading the transformation of global energy infrastructure through innovation, sustainability, and excellence.
+                    Bringing showroom perfection to your driveway with expert mobile detailing for the world's finest automobiles.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border-t-4 border-gold">
+                    <div class="text-gold mb-4 svg-icon" data-svg-animate>
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Sustainable Energy</h3>
+                    <h3 class="text-2xl font-bold mb-3">Exotic Car Specialists</h3>
                     <p class="text-gray-600">
-                        Pioneering renewable energy solutions that reduce carbon footprint and promote environmental stewardship.
+                        Expert knowledge and care for European luxury brands. We understand the unique needs of each exotic vehicle.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border-t-4 border-gold">
+                    <div class="text-gold mb-4 svg-icon" data-svg-animate>
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Mobile Convenience</h3>
+                    <p class="text-gray-600">
+                        We come to you! Premium detailing service at your home, office, or preferred location.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border-t-4 border-gold">
+                    <div class="text-gold mb-4 svg-icon" data-svg-animate>
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Proven Reliability</h3>
+                    <h3 class="text-2xl font-bold mb-3">Premium Products</h3>
                     <p class="text-gray-600">
-                        Decades of expertise delivering robust infrastructure projects on time and within budget.
-                    </p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <div class="text-blue-600 mb-4 svg-icon" data-svg-animate>
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Industry Leadership</h3>
-                    <p class="text-gray-600">
-                        Setting industry standards with innovative approaches and cutting-edge technology solutions.
+                        Using only the finest detailing products designed specifically for luxury and exotic vehicles.
                     </p>
                 </div>
             </div>
@@ -266,55 +294,224 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4">
+    <section id="services" class="py-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-                <p class="text-xl text-gray-600">Comprehensive energy infrastructure solutions tailored to your needs</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Premium Detailing Services</h2>
+                <p class="text-xl text-gray-600">Comprehensive care packages designed for exotic and luxury vehicles</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <h4 class="text-xl font-bold mb-2">Solar Power</h4>
-                    <p class="text-blue-100">Large-scale solar installations and distributed generation systems.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Exterior Detail</h4>
+                    <p class="text-gray-300 mb-4">Premium hand wash, clay bar treatment, paint correction, and ceramic coating application.</p>
+                    <p class="text-gold font-semibold text-xl">From $299</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <h4 class="text-xl font-bold mb-2">Wind Energy</h4>
-                    <p class="text-green-100">Onshore and offshore wind farm development and management.</p>
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Interior Detail</h4>
+                    <p class="text-gray-300 mb-4">Deep clean and conditioning of leather, vacuuming, steam cleaning, and odor elimination.</p>
+                    <p class="text-gold font-semibold text-xl">From $249</p>
                 </div>
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <h4 class="text-xl font-bold mb-2">Grid Infrastructure</h4>
-                    <p class="text-purple-100">Smart grid solutions and transmission network optimization.</p>
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Full Detail Package</h4>
+                    <p class="text-gray-300 mb-4">Complete interior and exterior transformation for the ultimate showroom finish.</p>
+                    <p class="text-gold font-semibold text-xl">From $499</p>
                 </div>
-                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl shadow-lg card-lift scroll-fade-in">
-                    <h4 class="text-xl font-bold mb-2">Energy Storage</h4>
-                    <p class="text-orange-100">Advanced battery systems and energy storage technologies.</p>
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Paint Correction</h4>
+                    <p class="text-gray-300 mb-4">Multi-stage polishing to remove swirls, scratches, and restore factory shine.</p>
+                    <p class="text-gold font-semibold text-xl">From $599</p>
+                </div>
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Ceramic Coating</h4>
+                    <p class="text-gray-300 mb-4">Long-lasting protection with hydrophobic properties and enhanced gloss.</p>
+                    <p class="text-gold font-semibold text-xl">From $799</p>
+                </div>
+                <div class="bg-gradient-to-br from-gray-900 to-black text-white p-8 rounded-xl shadow-lg card-lift scroll-fade-in border border-gold border-opacity-30">
+                    <div class="text-gold mb-4">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Maintenance Detail</h4>
+                    <p class="text-gray-300 mb-4">Regular upkeep to maintain that pristine look between major details.</p>
+                    <p class="text-gold font-semibold text-xl">From $179</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 bg-gray-50">
+    <!-- Brands Section -->
+    <section id="brands" class="py-20 px-4 bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-                <p class="text-xl text-gray-600">Transforming energy landscapes across the globe</p>
+                <h2 class="text-4xl font-bold text-white mb-4">European Brands We Specialize In</h2>
+                <p class="text-xl text-gray-400">Expert care for the world's most prestigious automotive brands</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center card-lift scroll-fade-in border border-gold border-opacity-20 hover:border-opacity-50 transition">
+                    <div class="text-4xl font-bold text-gold mb-2">PORSCHE</div>
+                    <p class="text-gray-400 text-sm">German Engineering</p>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center card-lift scroll-fade-in border border-gold border-opacity-20 hover:border-opacity-50 transition">
+                    <div class="text-4xl font-bold text-gold mb-2">FERRARI</div>
+                    <p class="text-gray-400 text-sm">Italian Excellence</p>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center card-lift scroll-fade-in border border-gold border-opacity-20 hover:border-opacity-50 transition">
+                    <div class="text-4xl font-bold text-gold mb-2">BMW</div>
+                    <p class="text-gray-400 text-sm">Ultimate Driving</p>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center card-lift scroll-fade-in border border-gold border-opacity-20 hover:border-opacity-50 transition">
+                    <div class="text-4xl font-bold text-gold mb-2">LAND ROVER</div>
+                    <p class="text-gray-400 text-sm">British Luxury</p>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center card-lift scroll-fade-in border border-gold border-opacity-20 hover:border-opacity-50 transition">
+                    <div class="text-4xl font-bold text-gold mb-2">MINI</div>
+                    <p class="text-gray-400 text-sm">Cooper Prestige</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-xl text-gray-400 mb-4">We also service:</p>
+                <div class="flex flex-wrap justify-center gap-4 text-gold">
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Mercedes-Benz</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Audi</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Lamborghini</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">McLaren</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Bentley</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Rolls-Royce</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Maserati</span>
+                    <span class="px-4 py-2 bg-black bg-opacity-50 rounded-lg border border-gold border-opacity-20">Jaguar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Before & After Transformations</h2>
+                <p class="text-xl text-gray-600">See the difference professional detailing makes</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
-                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                    <div class="h-64 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">Ferrari 488</p>
+                            <p class="text-sm opacity-75">Paint Correction</p>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Desert Sun Initiative</h3>
-                        <p class="text-gray-600 mb-4">500MW solar farm providing clean energy to 150,000 homes across the southwestern region.</p>
-                        <span class="text-blue-600 font-semibold">Completed 2024</span>
+                        <h3 class="text-xl font-bold mb-2">Paint Correction & Ceramic Coating</h3>
+                        <p class="text-gray-600">Restored showroom finish on this stunning Ferrari with multi-stage correction.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
-                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600"></div>
+                    <div class="h-64 bg-gradient-to-br from-gray-700 to-black flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">Porsche 911 GT3</p>
+                            <p class="text-sm opacity-75">Full Detail</p>
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Coastal Wind Array</h3>
-                        <p class="text-gray-600 mb-4">300MW offshore wind installation delivering sustainable power to coastal communities.</p>
-                        <span class="text-green-600 font-semibold">Completed 2023</span>
+                        <h3 class="text-xl font-bold mb-2">Complete Interior & Exterior</h3>
+                        <p class="text-gray-600">Full transformation bringing this GT3 back to pristine condition.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-64 bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">BMW M5</p>
+                            <p class="text-sm opacity-75">Ceramic Coating</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Premium Ceramic Protection</h3>
+                        <p class="text-gray-600">Long-lasting protection with incredible depth and gloss.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-64 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">Range Rover Sport</p>
+                            <p class="text-sm opacity-75">Interior Detail</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Luxury Interior Restoration</h3>
+                        <p class="text-gray-600">Deep cleaning and conditioning of premium leather surfaces.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-64 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">Lamborghini Huracán</p>
+                            <p class="text-sm opacity-75">Paint Correction</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Show-Quality Finish</h3>
+                        <p class="text-gray-600">Meticulous correction revealing the true beauty of this exotic.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-lift scroll-fade-in">
+                    <div class="h-64 bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
+                        <div class="text-white text-center p-8">
+                            <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold">Mini Cooper S</p>
+                            <p class="text-sm opacity-75">Full Detail</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Complete Transformation</h3>
+                        <p class="text-gray-600">Every detail perfected on this classic British icon.</p>
                     </div>
                 </div>
             </div>
@@ -326,94 +523,132 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 text-center">
                 <div>
-                    <div class="text-5xl font-bold mb-2">2.5GW</div>
-                    <div class="text-blue-100">Total Capacity</div>
+                    <div class="text-5xl font-bold mb-2 text-gold">500+</div>
+                    <div class="text-gray-300">Cars Detailed</div>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold mb-2">50+</div>
-                    <div class="text-blue-100">Projects Completed</div>
+                    <div class="text-5xl font-bold mb-2 text-gold">100%</div>
+                    <div class="text-gray-300">Client Satisfaction</div>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold mb-2">15</div>
-                    <div class="text-blue-100">Countries Served</div>
+                    <div class="text-5xl font-bold mb-2 text-gold">15+</div>
+                    <div class="text-gray-300">Years Experience</div>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold mb-2">1M+</div>
-                    <div class="text-blue-100">Homes Powered</div>
+                    <div class="text-5xl font-bold mb-2 text-gold">Mobile</div>
+                    <div class="text-gray-300">We Come To You</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4">
+    <section id="contact" class="py-20 px-4 bg-gray-50">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600">Ready to power your next project? Let's discuss how we can help.</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Book Your Appointment</h2>
+                <p class="text-xl text-gray-600">Experience the Ouro Detailing difference. We come to you!</p>
             </div>
-            <div class="bg-white rounded-xl shadow-xl p-8">
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your interest! This is a demo form. Please email info@sterlingenergyinfrastructure.com directly.');">
+            <div class="bg-white rounded-xl shadow-xl p-8 border-t-4 border-gold">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your interest in Ouro Detailing! We will contact you shortly to schedule your appointment.');">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label for="contact-name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" required>
+                            <label for="contact-name" class="block text-gray-700 font-semibold mb-2">Name *</label>
+                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="Your name" required>
                         </div>
                         <div>
-                            <label for="contact-email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your@email.com" required>
+                            <label for="contact-email" class="block text-gray-700 font-semibold mb-2">Email *</label>
+                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contact-phone" class="block text-gray-700 font-semibold mb-2">Phone</label>
+                            <input type="tel" id="contact-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="(555) 123-4567">
+                        </div>
+                        <div>
+                            <label for="contact-vehicle" class="block text-gray-700 font-semibold mb-2">Vehicle Make & Model *</label>
+                            <input type="text" id="contact-vehicle" name="vehicle" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="e.g., Porsche 911" required>
                         </div>
                     </div>
                     <div>
-                        <label for="contact-company" class="block text-gray-700 font-semibold mb-2">Company</label>
-                        <input type="text" id="contact-company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your company">
+                        <label for="contact-service" class="block text-gray-700 font-semibold mb-2">Service Interested In *</label>
+                        <select id="contact-service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" required>
+                            <option value="">Select a service...</option>
+                            <option value="exterior">Exterior Detail</option>
+                            <option value="interior">Interior Detail</option>
+                            <option value="full">Full Detail Package</option>
+                            <option value="paint">Paint Correction</option>
+                            <option value="ceramic">Ceramic Coating</option>
+                            <option value="maintenance">Maintenance Detail</option>
+                            <option value="custom">Custom Package</option>
+                        </select>
                     </div>
                     <div>
-                        <label for="contact-message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                        <textarea id="contact-message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project..." required></textarea>
+                        <label for="contact-location" class="block text-gray-700 font-semibold mb-2">Preferred Location</label>
+                        <input type="text" id="contact-location" name="location" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="Address or general area">
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                        Send Message
+                    <div>
+                        <label for="contact-message" class="block text-gray-700 font-semibold mb-2">Additional Details</label>
+                        <textarea id="contact-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent" placeholder="Tell us about your detailing needs..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gold text-black py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition shadow-lg">
+                        Request Appointment
                     </button>
                 </form>
+                <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                    <p class="text-gray-600 mb-2">Or call us directly:</p>
+                    <a href="tel:+15551234567" class="text-2xl font-bold text-gold hover:text-opacity-80 transition">(555) 123-4567</a>
+                    <p class="text-gray-600 mt-4">
+                        <a href="mailto:info@ourodetailing.com" class="text-gold hover:text-opacity-80 transition">info@ourodetailing.com</a>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
+    <footer class="bg-black text-white py-12 px-4 border-t border-gold border-opacity-20">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Sterling Energy</h3>
-                    <p class="text-gray-400">Building tomorrow's energy infrastructure today.</p>
+                    <h3 class="text-2xl font-bold mb-4 text-gold">Ouro Detailing</h3>
+                    <p class="text-gray-400">Premium mobile detailing for exotic European automobiles.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
+                    <h4 class="font-semibold mb-4 text-gold">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="#services" class="hover:text-gold transition">Exterior Detailing</a></li>
+                        <li><a href="#services" class="hover:text-gold transition">Interior Detailing</a></li>
+                        <li><a href="#services" class="hover:text-gold transition">Paint Correction</a></li>
+                        <li><a href="#services" class="hover:text-gold transition">Ceramic Coating</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <h4 class="font-semibold mb-4 text-gold">Brands We Service</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
-                        <li><a href="#" class="hover:text-white transition">News</a></li>
+                        <li>Porsche</li>
+                        <li>Ferrari</li>
+                        <li>BMW & Mini Cooper</li>
+                        <li>Land Rover</li>
+                        <li>All European Luxury Cars</li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <h4 class="font-semibold mb-4 text-gold">Contact</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li>info@sterlingenergyinfrastructure.com</li>
-                        <li>+1 (555) 123-4567</li>
+                        <li><a href="mailto:info@ourodetailing.com" class="hover:text-gold transition">info@ourodetailing.com</a></li>
+                        <li><a href="tel:+15551234567" class="hover:text-gold transition">(555) 123-4567</a></li>
+                        <li class="mt-4">
+                            <a href="#contact" class="inline-block bg-gold text-black px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                                Book Now
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Sterling Energy Infrastructure. All rights reserved.</p>
+                <p>&copy; 2025 Ouro Detailing. All rights reserved. | Premium Mobile Detailing Services</p>
             </div>
         </div>
     </footer>
